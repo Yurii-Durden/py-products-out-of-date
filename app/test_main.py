@@ -84,6 +84,7 @@ def test_outdated_products(
         expected_result: list[str]
 ) -> None:
     mocked_date.today.return_value = today_date
-    mocked_date.side_effect = lambda *args, **kwargs: datetime.date(*args, **kwargs)
+    mocked_date.side_effect = \
+        lambda *args, **kwargs: datetime.date(*args, **kwargs)
 
     assert outdated_products(products) == expected_result
